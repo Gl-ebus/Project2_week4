@@ -1,0 +1,26 @@
+{% extends 'DevJunior/base.html' %}
+{% block container %}
+{% load crispy_forms_tags %}
+<body>
+  <main class="container">
+    <div class="row">
+      <div class="col-8 col-lg-4 offset-2 offset-lg-4">
+        <form action="" class="form-signin pt-5" method="post">
+          <div class="text-center mt-5 b-1">
+
+            <h1 class="h3 mb-3 font-weight-normal"><a href="{% url 'home' %}">Джуманджи</a></h1>
+            <p class="h5 font-weight-light">Войдите, чтобы управлять</p>
+          </div>
+          <div class="card-body mt-4 mb-3 mx-3">
+            {% crispy form "bootstrap4" %}
+            <input type="submit" class="btn btn-primary mt-4 col-lg-12 text-center mb-2" value="Войти">
+          </div>
+          <div class="card-body mt-4 mb-4 mx-4">
+          <p>Нет аккаунта? <a href="{% url 'singup' %}">Зарегистрируйтесь</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+{% endblock %}

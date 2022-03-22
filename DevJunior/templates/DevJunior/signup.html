@@ -1,0 +1,20 @@
+{% extends 'DevJunior/base.html' %}
+{% block container %}
+{% load crispy_forms_tags %}
+<body>
+<main class="container">
+    <div class="row">
+        <div class="col-8 col-lg-4 offset-2 offset-lg-4">
+            <form method="post" action="" class="text-center mt-5 b-1">
+                <a href="{% url 'home' %}">
+                <h1 class="h3 mb-3 font-weight-normal">Джуманджи</h1>
+                </a>
+                <p class="h5 font-weight-light">Создайте аккаунт</p>
+               {% crispy form "bootstrap4" %}
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'DevJunior/base.html' %}
+{% block container %}
+{% load crispy_forms_tags %}
+  <main class="container mt-3 pb-5">
+    <div class="row mt-5">
+      <div class="col-12 col-lg-2">
+        <div class="pl-3 mb-5">
+          <p><a href="{% url 'home' %}">Назад</a></p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <section class="pl-3">
+          <a href="#"><img src="{{ vacancy.specialty.picture.url }}" width="80" height="80" alt=""></a>
+          <div class="d-flex align-items-baseline align-content-baseline">
+            <h1 class="h2 mt-4 font-weight-bold" >{{ vacancy.title }}</h1>
+            <p class="m-0 pl-3">{{ vacancy.salary_min }} – {{ vacancy.salary_max }} Р</p>
+          </div>
+          <p class="mt-2">{{ vacancy.specialty.title }} • {{ vacancy.skills }}</p>
+          <p class="text-muted mb-4">{{ vacancy.company.name|title }} ({{ vacancy.company.employee_count }} человек), {{ vacancy.company.location }}</p>
+          <div style="line-height: 1.8;">
+            {{ vacancy.description|safe }}
+          </div>
+            <form action="/vacancies/{{ vacancy.id }}/" class="card mt-4 mb-3" enctype="multipart/form-data" method="post">
+            <div class="card-body mx-3">
+              <p class="h5 mt-3 pl-3 font-weight-normal">Отправить отлик на вакансию</p>
+              <p> {% crispy form "bootstrap4" %} </p>
+              </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+{% endblock %}
